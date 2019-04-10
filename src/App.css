@@ -39,8 +39,14 @@ img {
   display: flex;
 }
 .book-list {
+  align-content: center;
   width: 50%;
 }
 .bookshelf {
+  align-content: center;
   width: 50%;
+}
+.single-book {
+  align-content: center;
+  text-align: center;
 }
