@@ -8,6 +8,7 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
+			// I just learned today that I can do this another way by keeping track of a books state //within each book.  Maybe like a boolean added to library.  Did it with arrays just because that is what I am familiar with
 			allBooks: [],
 			shelfBooks: [],
 			listBooks: []
@@ -29,25 +30,31 @@ class App extends Component {
 	}
 
 	addBookToShelf = (book) => {
-		let newShelfBooks = this.state.shelfBooks.slice().concat(book);
-		let newListBooks = this.state.listBooks.filter((b) => {
-			return b !== book;
-		});
-		this.setState({
-			listBooks: newListBooks,
-			shelfBooks: newShelfBooks
-		});
+		let newShelfBooks = this.state.shelfBooks.slice();
+		if (newShelfBooks.includes(book)) {
+			console.log('why the hell can I not get unless working');
+		} else {
+			console.log('adding book');
+			this.setState({
+				shelfBooks: newShelfBooks.concat(book)
+			});
+		}
+		// let newListBooks = this.state.listBooks.filter((b) => {
+		// 	return b !== book;
+		// });
+
+		// listBooks: newListBooks
 	};
 
 	removeBookFromShelf = (book) => {
-		let newListBooks = this.state.listBooks.slice().concat(book);
+		// let newListBooks = this.state.listBooks.slice().concat(book);
 		let newShelfBooks = this.state.shelfBooks.filter((b) => {
 			return b !== book;
 		});
 		this.setState({
-			listBooks: newListBooks,
 			shelfBooks: newShelfBooks
 		});
+		// listBooks: newListBooks
 	};
 
 	handleNewBookSubmit = (ev, st) => {

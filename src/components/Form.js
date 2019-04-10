@@ -18,7 +18,7 @@ class Form extends React.Component {
 
 	render() {
 		return (
-			<h1>
+			<h5>
 				<form onSubmit={(ev) => this.props.handleNewBookSubmit(ev, this.state)}>
 					<label>Author</label>
 					<input
@@ -27,13 +27,15 @@ class Form extends React.Component {
 						value={this.state.newBookAuthor}
 						onChange={this.handleNewBookChange}
 					/>
-					<label>Img</label>
+					<br />
+					<label>Img URL</label>
 					<input
 						type="text"
 						name="newBookImg"
 						value={this.state.newBookImg}
 						onChange={this.handleNewBookChange}
-					/>
+					/>{' '}
+					<br />
 					<label>Title</label>
 					<input
 						type="text"
@@ -41,9 +43,10 @@ class Form extends React.Component {
 						value={this.state.newBookTitle}
 						onChange={this.handleNewBookChange}
 					/>
+					<br />
 					<input type="submit" value="Submit" />
 				</form>
-			</h1>
+			</h5>
 		);
 	}
 }

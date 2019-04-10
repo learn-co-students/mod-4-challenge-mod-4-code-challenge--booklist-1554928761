@@ -17,6 +17,7 @@ class BookList extends Component {
 		return (
 			<div className="book-list">
 				<h1>Book List</h1>
+				<h3>Add New Book</h3>
 				<Form handleNewBookSubmit={this.props.handleNewBookSubmit} />
 				<ul>{this.renderListBooks()}</ul>
 			</div>
