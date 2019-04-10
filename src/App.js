@@ -19,19 +19,41 @@ class App extends Component {
   componentDidMount(){
     fetch('http://localhost:3005/books')
     .then(resp => resp.json())
-    .then(books => this.setState({books}))
-  }
+    .then(books => {
+      const allBooks= books.map(book =>{
+         return {...book, onShelf: false} })
+      this.setState({books:allBooks})
+  })
+}
 
   handleClick = (book) => {
-    this.setState({
-      bookshelf: [...this.state.bookshelf, book]
+    const updatedBooks=this.state.books.map(thisBook => {
+      return thisBook === book ? {...book, onShelf: true} : thisBook
     })
+
+    this.setState({
+      books:updatedBooks
+    }, this.addBookToShelf(book))
+  }
+
+  addBookToShelf =(book) => {
+    if(!book.onShelf){
+      this.setState({
+        bookshelf: [...this.state.bookshelf, book],
+      })
+    }
   }
 
   removeBook =(book) => {
     const updatedBooks = this.state.bookshelf.filter(thisBook => {return book !== thisBook})
+    
+    const editedBooks= this.state.books.map(thisBook =>{
+      return thisBook.title ===book.title ? {...book, onShelf: false} : thisBook
+    })
+
     this.setState({
-      bookshelf: updatedBooks
+      bookshelf: updatedBooks,
+      books: editedBooks
     })
   }
 
