@@ -1,12 +1,19 @@
-import React from "react";
+import React, { Component } from 'react';
 
-const Book = props => {
-  return (
-    <div>
-      <h2>{/*book title*/}</h2>
-      {/*book img*/}
-    </div>
-  );
-};
-
+class Book extends Component {
+	render() {
+		return (
+			<div>
+				<h2>{this.props.book.title}</h2>
+				<img
+					onClick={() => {
+						this.props.handleClick(this.props.book);
+					}}
+					src={this.props.book.img}
+					alt="book-img"
+				/>
+			</div>
+		);
+	}
+}
 export default Book;
