@@ -14,7 +14,8 @@ class BookList extends Component {
           handleChange={this.props.handleChange}
           handleSubmit={this.props.handleSubmit}/>
         <ul>{this.props.books.map(book => (
-            <Book book={book}
+            <Book
+              book={book}
               key={book.title}
               handleClick={this.props.handleClick}/>
           ))}</ul>
