@@ -39,8 +39,9 @@ img {
   display: flex;
 }
 .book-list {
-  width: 50%;
+  display: inline-block;
+  width: 40vw;
 }
 .bookshelf {
-  width: 50%;
+  width: 40vw;
 }
