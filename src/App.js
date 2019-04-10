@@ -31,14 +31,15 @@ class App extends Component {
 
 	addBookToShelf = (book) => {
 		let newShelfBooks = this.state.shelfBooks.slice();
-		if (newShelfBooks.includes(book)) {
-			console.log('why the hell can I not get unless working');
-		} else {
+		if (!newShelfBooks.includes(book)) {
 			console.log('adding book');
 			this.setState({
 				shelfBooks: newShelfBooks.concat(book)
 			});
+		} else {
+			alert('Book already added dummy');
 		}
+
 		// let newListBooks = this.state.listBooks.filter((b) => {
 		// 	return b !== book;
 		// });

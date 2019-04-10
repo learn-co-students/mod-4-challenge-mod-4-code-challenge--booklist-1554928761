@@ -28,14 +28,6 @@ class Form extends React.Component {
 						onChange={this.handleNewBookChange}
 					/>
 					<br />
-					<label>Img URL</label>
-					<input
-						type="text"
-						name="newBookImg"
-						value={this.state.newBookImg}
-						onChange={this.handleNewBookChange}
-					/>{' '}
-					<br />
 					<label>Title</label>
 					<input
 						type="text"
@@ -43,6 +35,14 @@ class Form extends React.Component {
 						value={this.state.newBookTitle}
 						onChange={this.handleNewBookChange}
 					/>
+					<br />
+					<label>Img URL</label>
+					<input
+						type="text"
+						name="newBookImg"
+						value={this.state.newBookImg}
+						onChange={this.handleNewBookChange}
+					/>{' '}
 					<br />
 					<input type="submit" value="Submit" />
 				</form>
